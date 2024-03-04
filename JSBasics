@@ -1,0 +1,63 @@
+var ->  Hoisted
+let     -> block  // if defining inside a curly braces it only works inside there
+const -> block   // ^^^^^^^^^^^^^^^^^^^^^
+
+
+Same concepts:
+var x = 10;
+var y = 15;
+
+console.log("value of", x, "value of", y)
+console.log(`value of ${x} value of ${y}`)   ${} -> string literal   -- ` not ' --
+
+
+// ----- Same function concepts: ----- ///
+
+function square(x){
+  return x*x;
+}
+
+const square=(x)=>{
+  return x*x;
+}
+
+console.log(square(5));
+
+// ---------------------------//
+
+
+// ------------ Arrays concept ----------------- //
+var arrays = [1, 2, 3, 4, 5]
+
+push = adds a element at the end 
+pop = removes the end    ----->   (pop doesnt need a parameter)
+shift = removes first value
+
+ex. arrays.push(6)  arrays.pop()   arrays.shift()        
+
+sort
+arrays.sort(function(a,b){ return a-b } ));    ---> if arr is ints --> a represents index 0, b represents index 1 in the array 
+
+// ------------------------ //
+
+// ------------ JSON ---------------- //
+OBJECTS
+{} -> object [] -> array
+
+var person = {
+  (like typedef/structures but with initialization)
+  "key" = "values u want to assign"
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
