@@ -1,0 +1,59 @@
+<div>
+        <input id="num1"/>
+        <input id="num2"/>
+        <button onclick="displayNum()">ADD</button>
+        <p id ="sum">25</p>
+    </div>
+
+    <script>
+
+        let x;
+
+        function displayNum(){
+            document.getElementById("sum").textContent =  parseInt(document.getElementById("num1").value) + parseInt(document.getElementById("num2").value);
+        }
+    </script>
+
+
+or (in phone)
+
+
+
+//---------------------------------------//
+
+ <div id="calculator">
+        <p>Input on the total bill from the restaurant</p>
+
+        <label>PHP  </label><input type="text"; placeholder="Bill Amount" id="billinp">
+
+        <p>Service Quality?</p>
+        <select id = "serviceQual">
+            <option disabled selected value="0">----Quality Services----</option>
+            <option value="0.3">30% - Excellent</option>
+            <option value="0.2">20% - Good</option>
+            <option value="0.15">15% - Average</option>
+            <option value="0.1">10% - Mediciore</option>
+        </select>
+        <br><br>
+        <p>How many people will share the bill?</p>
+        <input type="text" id="NumPeople" placeholder="The number of People"> People <button onclick="calculate()">calculate</button>
+        
+        <p>PHP</p>
+        <p id ="totaltip">0.00 each</p>
+
+    </div>
+
+    <script>
+        function calculate(){
+            var x, service, people;
+            x = parseFloat(document.getElementById("billinp").value);
+            service = parseFloat(document.getElementById("serviceQual").value);
+            people = parseInt(document.getElementById("NumPeople").value);
+            var totalTip = x * service;
+            var tipPerPerson = (x + totalTip) / people;
+            document.getElementById("totaltip").textContent = `${tipPerPerson} each`;
+        }
+
+    </script>
+
+// -----------------------------  //
