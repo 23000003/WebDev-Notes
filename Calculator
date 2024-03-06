@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculator</title>
+
+    <style>
+        #calcu{
+            width: 500px;
+            height: 800px;
+            background-color: rgb(72, 161, 161);
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            border: 1px solid black;
+            transform: translate(-50%, -50%) ;
+        }
+        
+        #box{
+            margin: 30px;
+            width: 430px;
+            height: 50px;
+            border: 2px solid black;
+            background-color: white;
+            text-align: right;
+            padding: 10px;
+            font-size: 24px;
+        }
+        #buttons{
+            margin: 40px;
+        }
+        .x{
+            height: 80px;
+            width: 80px;
+            margin: 10px;
+            font-size: 24px;
+        }
+
+    </style>
+</head>
+<body>
+    
+    <div id="calcu">
+        <div id="box" style="display: flex;">
+            <p id="result" style="text-align: left"></p>
+            <button onclick="addvalue(' ')"style="margin-left:395px; height: 30px; margin-top: 13px; position: fixed;">x</button>
+
+        </div>
+        <div id="buttons">
+            <div id="button123">
+                <button onclick="addvalue('1')"; class="x">1</button>
+                <button onclick="addvalue('2')" class="x">2</button>
+                <button onclick="addvalue('3')" class="x">3</button>
+                <button onclick="addvalue('+')" class="x">+</button>
+            </div>
+            <div id="buttion456">
+                <button onclick="addvalue('4')" class="x">4</button>
+                <button onclick="addvalue('5')" class="x">5</button>
+                <button onclick="addvalue('6')" class="x">6</button>
+                <button onclick="addvalue('-')" class="x">-</button>
+            </div>
+            <div id="button789">
+                <button onclick="addvalue('7')" class="x">7</button>
+                <button onclick="addvalue('8')" class="x">8</button>
+                <button onclick="addvalue('9')" class="x">9</button>
+                <button onclick="addvalue('*')" class="x">x</button>
+            </div>
+            <div id="button0">
+                <button onclick="addvalue('0')" class="x">0</button>
+                <button onclick="addvalue('.')" class="x">.</button>
+                <button onclick="calculate()" class="x">=</button>
+                <button onclick="addvalue('/')" class="x">/</button>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        var x = 1;
+        var y = 0;
+        function addvalue(value) {
+            var resultBox = document.getElementById("result");
+
+            if(value > '0'){
+                y = 1;
+            }
+
+            if (value != ' ' && y == 1) {
+                resultBox.textContent += value;
+                // document.getElementById("result").textContent += value; -> valid
+            } else {
+                resultBox.textContent = resultBox.textContent.slice(0, -1); //slice -> removes 1 value/character
+                if (x == 0) {
+                    // document.getElementById("result").textContent = ''; -> valid
+                    resultBox.textContent = '';
+                    x = 1;
+                }
+            }   
+        }
+
+        function calculate() {
+            var results = eval(document.getElementById("result").textContent); //eval = evaluates strings its like when using atoi + strtok
+            document.getElementById("result").innerText = results;
+            x = 0;
+        }
+    </script>
+</body>
+</html>
