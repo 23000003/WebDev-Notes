@@ -1,0 +1,18 @@
+
+document.getElementsbyClassName ->>> willbe an array
+if accessing should have an index.
+
+example:
+var = document.getElementsbyClassName("H1");  (theres 5 H1 class)
+console.log(H1[0]);
+
+
+
+document.querySelector("p")  ->>targets all element p
+
+document.querySelector(".H1") ->> targets first classname with H1 or (p.H1) if u want to target specific element with that classname  (if ID just change to #)  
+
+document.querySelectorAll(".H1") ->> selects all with class H1  ( will be an array )
+
+document.getElementbyTagName("li")  ->> selects all tag elements like what ul have which is (li) if theres many then it will be an array ->> document.getElementbyTagName("li")[index]
+
