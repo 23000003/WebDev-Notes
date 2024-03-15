@@ -15,4 +15,20 @@ document.querySelector(".H1") ->> targets first classname with H1 or (p.H1) if u
 document.querySelectorAll(".H1") ->> selects all with class H1  ( will be an array )
 
 document.getElementbyTagName("li")  ->> selects all tag elements like what ul have which is (li) if theres many then it will be an array ->> document.getElementbyTagName("li")[index]
+ex.
+<ul>
+    <li>Item 1</li>
+    <li>Item 2</li>
+    <li>Item 3</li>
+    <li>Item 4</li>
+    <li>Item 5</li>
+</ul>
 
+<script>
+// Get all <li> elements
+const listItems = document.getElementsByTagName("li");
+
+// Access specific <li> elements by index
+console.log(listItems[0].textContent); // Output: "Item 1"
+console.log(listItems[2].textContent); // Output: "Item 3"
+console.log(listItems[4].textContent); // Output: "Item 5"
