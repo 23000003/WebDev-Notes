@@ -1,0 +1,79 @@
+var val = 0;
+
+        function add(value, button){
+            
+            const first = document.getElementById("first");
+            const second = document.getElementById("second");
+
+            if (button.innerHTML === "ADD") {
+                second.insertBefore(button.parentNode, second.firstChild); 
+                val += parseInt(value);
+                button.innerHTML = "Remove";
+            } else {                                                            //Insertbefore = inserts before the element  // last/first referes to last/first index
+                first.insertBefore(button.parentNode, first.firstChild); 
+                button.innerHTML = "ADD";                                    //parentNode = moves whats inside the parent (li is the parent since button is inside of li)
+                val -= parseInt(value);
+            }
+            document.getElementById("sum").placeholder = `${val}`;
+        }
+
+        function tender(){
+            var cash = parseInt(document.getElementById("cash").value);
+            const first = document.getElementById("first");
+            const second = document.getElementById("second");
+            var button = document.querySelectorAll("button");
+
+            if(cash < val){
+                alert("Insufficient Cash!!");
+            }else{
+                alert(`Change is: ${cash - val}`);
+                val = 0;
+                document.getElementById("sum").placeholder = "0";
+                document.getElementById("cash").value = "";
+                const first = document.getElementById("first");
+                const second = document.getElementById("second");
+                while (second.firstChild) {
+                    first.insertBefore(second.firstChild, first.firstChild); 
+                }
+                button.forEach(button => {
+                    button.innerHTML = "ADD";
+                });
+                
+            }
+
+        }
+
+// ------------------------------------------------------ HTML ------------------------------------------------------------ //
+
+<ol id="first">                                                                                    <!-- ("this") is a script & keyword to be specific on which element ur gonna make an event -->
+                <li>Project 01 - P51 <button onclick="add('51', this)">ADD</button></li>
+                <li>Project 02 - P31 <button onclick="add('31', this)">ADD</button></li>
+                <li>Project 03 - P5 <button onclick="add('5', this)">ADD</button></li>
+                <li>Project 04 - P37 <button onclick="add('37', this)">ADD</button></li>
+                <li>Project 05 - P47 <button onclick="add('47', this)">ADD</button></li>
+                <li>Project 06 - P23 <button onclick="add('23', this)">ADD</button></li>
+                <li>Project 07 - P65 <button onclick="add('65', this)">ADD</button></li>
+                <li>Project 08 - P83 <button onclick="add('83', this)">ADD</button></li>
+                <li>Project 09 - P12 <button onclick="add('12', this)">ADD</button></li>
+                <li>Project 10 - P3 <button onclick="add('3', this)">ADD</button></li>
+            </ol>
+
+        </div>
+        
+        <div class="right">
+            <h1>Amount</h1>
+            
+            <ol id="second">
+
+            </ol>
+
+            <label>Sum:</label>
+            <input id="sum" placeholder="0"; readonly>
+            <br>
+            <br>
+            <label>Cash:</label>
+            <input id="cash">
+            <br>
+            <br>
+            <button onclick="tender()">Tender</button>
+        </div>
